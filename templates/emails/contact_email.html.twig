@@ -1,0 +1,17 @@
+<div>
+    
+    <h1>Nouveau message - Page Contact</h1>
+
+    <h2>Information du Contact :</h2>
+
+    <p>Prénom : {{ contact.firstName|striptags }}</p>
+    <p>Nom : {{ contact.lastName|striptags }}</p>
+    <p>Email : {{ contact.email|striptags }}</p>
+
+    <h2>Message :</h2>
+    
+    <p>
+        {{ contact.message|striptags }}
+    </p>
+
+</div>    

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de bord - Le Collectif Taliesin{% endblock %}
+
+{% block body %}
+
+    <div class="dashboard-users container"> 
+
+        <br>
+    
+        <h1 class="text-center my-5">Tableau de bord :</h1>
+
+        {% include "user/_menu.html.twig" %}
+
+        {% include "user/_latest-like.html.twig" %}
+
+        {% include "user/_latest-comment.html.twig" %}
+
+    </div>
+
+{% endblock %}

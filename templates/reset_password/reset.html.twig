@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reinitialiser votre mot de passe - Le Collectif Taliesin{% endblock %}
+
+    {% block body %}
+
+        <div class="container my-5">
+            
+            <div class="row">
+
+                <div class="col-12 my-5">
+
+                    <h1 class="my-4">Nouveau mot de passe :</h1>
+
+                    {{ form_start(resetForm) }}
+                        
+                        {{ form_row(resetForm.password) }}
+
+                        <div class="text-right my-3">
+                    
+                            <button class="btn btn-primary">Reset password</button>
+
+                        </div>
+                    
+                    {{ form_end(resetForm) }}
+
+                </div>
+
+            </div>
+
+        </div>
+    
+    {% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles commentés - Le Collectif Taliesin{% endblock %}
+
+{% block body %}
+    
+    <div class="comment-users container mb-4">
+
+        <br>
+    
+        <h1 class="text-center my-5">Articles commentés :</h1>
+
+        {% include "user/_menu.html.twig" %}
+
+        <div class="row">
+
+            {% for comment in articles %}
+
+                <div class="col-md-6 mb-3">
+                
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <a href="{{ path('article_show', {'id': comment.article.id}) }}" class="card-link" tabindex="0">
+                                <h2 class="card-title">{{ comment.article.title }}</h2>
+                                <h6 class="text-muted">Catégorie : {{ comment.article.category.name }}</h6>
+                            </a>
+                        </div>
+                        
+                        <img class="img-fluid rounded" src="{{ asset('uploads/images/' ~ comment.article.image) }}">
+                        
+                        <div class="card-body">
+                            <p class="card-text">{{ comment.article.content|slice(0,20) ~ '...' }}</p>
+                        </div>
+                        <hr>
+                        <div class="container">
+                            <h5><u>Votre commentaire :</u></h5>
+                            <h6>{{ comment.content }}</h6>
+                        </div>
+                        <div class="card-footer text-muted">
+                            Le {{ comment.article.createAt ? comment.article.createAt|date('d-m-Y') : '' }} par {{ comment.article.user.author}}.
+                        </div>
+                    </div>
+
+                </div>
+
+            {% else %}
+                <h6>Aucun article disponible !</h6>
+            {% endfor %}
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-12">
+                        
+                <div class="mt-3 d-flex justify-content-center pagination">
+                    {{ knp_pagination_render(articles) }}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

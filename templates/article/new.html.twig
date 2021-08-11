@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un article - Le Collectif Taliesin{% endblock %}
+
+    {% block body %}
+
+        <div class="article_new container">
+
+            <div class="row"> 
+
+                <div class="col-12">
+        
+                    {% if app.user and is_granted('ROLE_MODO') %}
+
+                        <br>
+                        
+                        <a href="{{ path('app_home') }}"><h3 class="my-5">🏠</h3></a>
+                        
+                        <h1 class="text-center my-5">Créer un article :</h1>
+
+                        {{ include('article/_form.html.twig') }}
+
+                    {% else %}
+
+                        <a href="{{ path('app_home') }}"><h3 class="my-5">🏠</h3></a>
+                        
+                        <h1 class="text-center my-5">Vous n'avez pas accès à cet page !!</h1>
+                    
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% endblock %}

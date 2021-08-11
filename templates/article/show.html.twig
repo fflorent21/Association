@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }} - Le Collectif Taliesin}{% endblock %}
+
+    {% block body %}
+        
+    <div class="article_show container">
+
+        <br>
+
+        <a href="{{ path('app_home') }}"><h3 class="my-5">🏠</h3></a>
+
+        {% for messages in app.flashes('success') %}
+            <div class="alert alert-dismissible alert-success">
+                <button type="button" class="close" data-dismiss="alert" tabindex="0">&times;</button>
+                {{ messages }}
+            </div>
+        {% endfor %}
+
+        <h1 class="text-center">{{ article.title }} {% if article.status == 'NP' %} (Non publié){% endif %}
+        </h1>
+        
+        <h6 class="text-center mb-4">{{ article.subTitle }}</h6>
+
+        {% if app.user and is_granted('ROLE_MODO') %}
+
+            <div class="d-flex">
+                
+                <a href="{{ path('article_edit', {'id': article.id}) }}" class="btn btn-warning mr-2 mb-2">Editer</a>
+                
+                {{ include('article/_delete_form.html.twig') }}
+
+            </div>
+        
+        {% endif %}
+
+        <h6 class="text-muted"><strong>Autheur :</strong> {{ article.user.author ? article.user.author : 'empty' }}</h6>
+        
+        <h6 class="text-muted"><strong>Date de création :</strong> {{ article.createAt ? article.createAt|date('d/m/Y à H\\hi', 'Europe/Paris') }}</h6>
+        
+        <h6 class="text-muted"><strong>Categorie :</strong> {{ article.category.name }}</h6>
+        
+        <hr>
+        
+        <img class="img-fluid rounded" src="{{ asset('uploads/images/' ~ article.image) }}">
+            
+        <div class="mt-4 mb-2 text-justify" style="overflow-wrap: break-word;">
+            {{ article.content|striptags }}
+        </div>
+        
+        <hr>
+        
+        <br>
+        
+        {% include "main/_like-btn.html.twig" %}
+        
+        <hr>
+        
+        {% include "article/_comment.html.twig" %}
+        
+        <hr>
+        
+        {% include "article/_latest-article.html.twig" %}
+
+    </div>
+
+    {% endblock %}

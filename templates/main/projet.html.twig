@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Le Projet Odyssey - Le Collectif Taliesin{% endblock %}
+
+{% block body %}
+
+    <div class="projet container-fluid">
+
+        <br>
+
+        <a href="{{ path('app_home') }}" class="go-home"><h3 class="my-5">🏠</h3></a>
+
+        <h1 class="text-center font-weight-bold my-5">Le Projet Odyssey :</h1>
+
+            <div class="text-center">
+                <p class="lead mb-5 d-none d-xl-block font-weight-bold text-white text-justify">
+                    Le Projet Odyssey est un projet de création de jeu de rôle. Si vous n’êtes pas familier avec le genre, en voici une brève définition : “Le jeu de rôle est un jeu de société coopératif. Un joueur particulier, le meneur de jeu, met en scène une aventure dans un cadre imaginaire en s’aidant d’un scénario. Les autres joueurs interprètent les personnages principaux de cette aventure. Le jeu consiste en un dialogue permanent au moyen duquel les joueurs décrivent les actions de leurs personnages. Le meneur de jeu décrit à son tour les effets de ces actions, interprète les personnages secondaires et arbitre la partie en s’appuyant sur des règles.”
+                    <a href="http://www.ffjdr.org/">Fédération Française de Jeux de Rôle.</a>
+                </p>
+            </div>
+
+            <div class="row">
+                <p class="col-md-6 odyssey font-weight-bold text-white text-justify">
+                    Il est important de noter que tous les membres de l’Orbis Primus et de l’Orbis Secundus doivent, selon le règlement de l’association, adhérer en tant que Membres Créateurs au Collectif Taliesin. (Note: ceux qui auront reconnu la référence à Borges dans les titres de catégories gagnent un cookie virtuel).<br class="mb-2">
+
+                    Nous recrutons, pour le Projet Odyssey, les fonctions suivantes :<br class="mb-2">
+
+                    <span>Cartographe.</span>
+                    Travail: Dessiner et découper les cartes du monde en cartes locales (échelle nationale et régionale) lisibles, puis implémenter les informations déterminées par le pôle lore. [Note: nous pouvons vous faire parvenir une copie de Wonderdraft, logiciel que nous utilisons, au besoin]<br class="mb-2">
+
+                    <span>Attaché de recherche.</span>
+                    Travail: Afin de bâtir un monde cohérent, nous avons besoin d’informations sur de très nombreux sujets historiques, religieux, culturels, etc. Ce travail prend beaucoup de temps, aussi nous avons besoin de gens habitués de la recherche et capables de rendre des notes synthétiques sur ces nombreux sujets, que nous utiliserons pour travailler.<br class="mb-2">
+                </p>
+
+                <p class="col-md-6 odyssey font-weight-bold text-white text-justify">
+                    <span>Game Designer.</span>
+                    Travail: Participer aux réunions du Pôle Lore (ou à distance) pour aider à façonner l’univers, ses thématiques, ses intrigues. Qu’il s’agisse d’imaginer une culture entière ou la vie d’une communauté paysanne des Balkans, c’est ici que ça se fera.<br class="mb-2">
+
+                    <span>Game Writer.</span>
+                    Travail: Rédiger les éléments créés par les Game Designer: profils de personnages, descriptifs, documents in-game… Il y aura notamment des articles de journal et des feuilletons narratifs tel qu’il en paraissait dans la presse au tournant du XXè à écrire sous forme fragmentaire.
+                    <br class="mb-2">
+
+                    <span>Graphiste.</span>
+                    Travail: Créer, en collaboration avec l’Orbis Primus les visuels du projet: logo, cartes de jeu, fiche personnage, bannière site, graphisme du logiciel, etc.
+                    <br class="mb-2">
+
+                    <span>Playtesteur.</span>
+                    Travail: Tester différents éléments du jeux et faire des retours précis dessus (règles, système de combat, fragments de la campagne, mécaniques narratives, thématiques, etc.)<br class="mb-2">
+
+                    <span>Correcteurs.</span>
+                    Travail: Relire et corriger le travail des différents pôles créatifs afin d'assurer une cohérence stylistique et grammaticale. Des Maîtres de jeu pour animer la campagne lorsqu'elle commencera!
+                    <br class="mb-2">
+                </p>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <img class="w-100" src="{{ asset('media/images/odyssey1.jpg') }}" alt="paysage Irlande">
+                </div>
+                <div class="col-md-6">
+                    <p class="odyssey pt-5 font-weight-bold text-white text-justify">
+                        Le jeu se déroulera dans un univers empreint de mystère, où beaucoup d’éléments ne sont pas encore clairs pour l’Homme, et où chacun lutte pour en savoir plus que les autres afin d’établir sa supériorité, qu’elle soit scientifique, politique, religieuse ou militaire. Foin de grand héroïsme, de toute-puissance et génocides draconiques: l’emphase sera mise sur l’exploration, l’enquête, la recherche et la découverte d’informations, de secrets et connaissances. Le danger n’est jamais bien loin, et il est fortement déconseillé de l’affronter ouvertement. Afin de mettre en avant cette atmosphère à la fois périlleuse et exaltante de grandes explorations et d’inconnu, nous développons un système de règles dédié, axé sur un narrativisme fort et faisant abstraction des traditionnels dés pour les remplacer par quelque chose d’unique, propre à notre univers de jeu.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <p class="odyssey pt-4 font-weight-bold text-white text-justify">
+                        Le Projet Odyssey se veut une campagne aux multiples niveaux de jeu et d’interaction. Si chaque joueur et maître de jeu sera libre d’explorer les trames et sujet qui attireront son intérêt, ils seront aussi confrontés à des évènement globaux, à des trames agissant à des échelles mondiales qui influeront sur leur quotidien - personnages, endroits, idéaux, factions… Tout sera affecté par ces événements, qui forceront les joueurs à réagir et à mobiliser les découvertes, les relations, etc, qu’ils auront pu développer au cours de leurs histoires particulières. Enfin le Projet Odyssey est conçu pour être un jeu adaptatif de longue durée, qu’il sera aisé de rejoindre en cours de partie et qui se développera durant de longues années (dans le temps du jeu comme dans le temps réel) afin de permettre un véritable approfondissement des personnages et du lien à l’univers. Ainsi le jeu connaîtra un développement continu afin de permettre cette expérience de jeu profonde, et de répondre aux différentes actions des joueurs tout en leur proposant des événements globaux.
+                    </p>
+                </div>
+                <div class="col-md-6 pb-5">
+                    <img class="w-100" src="{{ asset('media/images/odyssey2.jpg') }}" alt="paysage Irlande">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}

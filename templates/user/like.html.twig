@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles aimés - Le Collectif Taliesin{% endblock %}
+
+    {% block body %}
+        
+        <div class="like-users container mb-4">
+
+            <br>
+
+            <h1 class="text-center my-5">Vos articles aimés :</h1>
+
+            {% include "user/_menu.html.twig" %}
+
+            <div class="row">
+
+                {% for like in articles %}
+
+                    <div class="col-md-6 mb-3">
+                    
+                        <div class="card mb-3">
+                            
+                            <div class="card-body">
+                                <a href="{{ path('article_show', {'id': like.article.id}) }}" class="card-link" tabindex="0">
+                                    <h2 class="card-title">{{ like.article.title }}</h2>
+                                    <h6 class="text-muted">Catégorie : {{ like.article.category.name }}</h6>
+                                </a>
+                            </div>
+                            
+                                <img class="img-fluid rounded" src="{{ asset('uploads/images/' ~ like.article.image) }}">
+                            
+                            <div class="card-body">
+                                <p class="card-text">{{ like.article.content|slice(0,30) ~ '...' }}</p>
+                            </div>
+                            
+                            <div class="card-footer text-muted">
+                                Le {{ like.article.createAt ? like.article.createAt|date('d-m-Y') : '' }} par {{ like.article.user.author}}.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                {% else %}
+                    <h6>Aucun article disponible !</h6>
+                {% endfor %}
+
+            </div>
+            
+            <div class="row">
+
+                <div class="col-12">
+                        
+                        <div class="mt-3 d-flex justify-content-center pagination">
+                            {{ knp_pagination_render(articles) }}
+                        </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    {% endblock %}

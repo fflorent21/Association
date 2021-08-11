@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+
+        <title>{% block title %}Accès interdit{% endblock %}</title>
+
+        {% block stylesheets %}
+            <!-- Bootstrap CSS -->
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        {% endblock %}
+    </head>
+
+    {% block body %}
+
+        <div class="text-center text-secondary my-5">
+
+            <h1 class="display-1 text-danger font-title font-weight-bold">403</h1>
+            <h3 class="display-4 font-title">Vous n'êtes pas autorisé à consulter cette page...</h3>
+
+            <div>
+                Vous ne disposez pas des droits d'accès nécessaires pour afficher cette page.
+            </div>
+            <div>
+            Vous pouvez revenir à <a href="javascript:history.back()">la page précédente</a> ou aller à 
+            <a href={{ path('app_home') }}>la page d'accueil</a>.
+            </div>
+
+        </div>
+
+    {% endblock %}
+
+</html>

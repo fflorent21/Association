@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reinitialiser votre mot de passe - Le Collectif Taliesin{% endblock %}
+
+    {% block body %}
+        
+        <div class="container">
+        
+            {% for flashError in app.flashes('reset_password_error') %}
+                <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+            {% endfor %}
+            
+            <br>
+            
+            <h1 class="my-5">Réinitialisez votre mot de passe :</h1>
+
+            {{ form_start(requestForm) }}
+                
+                {{ form_row(requestForm.email) }}
+                
+                <div>
+                    
+                    <small>
+                        Entrez votre adresse email et nous vous enverrons un lien 
+                        pour réinitialiser votre mot de passe.
+                    </small>
+
+                </div>
+
+                <div class="text-right my-3">
+                    
+                    <button class="btn btn-primary">Envoyer</button>
+                    
+                </div>
+
+
+            {{ form_end(requestForm) }}
+
+        </div>
+            
+    {% endblock %}

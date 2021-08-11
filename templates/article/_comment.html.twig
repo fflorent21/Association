@@ -1,0 +1,50 @@
+<div>
+    
+    <h2 class="mt-4">Commentaires :</h2>
+    
+    {% if comments %}
+
+        {% for comment in comments %}
+            <div class="list-group-item flex-column align-items-start border mb-3">
+                <div class="d-flex w-100 justify-content-between">
+                    <h3 class="mb-1">{{ comment.user.author }}</h3>
+                    <small class="text-muted">{{ comment.createAt|date('d/m/Y à H\\hi', 'Europe/Paris') }}</small>
+                </div>
+                <div class="mb-1 text-secondary">{{ comment.content }}</div>
+            </div>
+        {% endfor %}
+
+    {% else %}
+        
+        <div class="text-center my-4 border p-4 text-muted">
+            Aucun commentaire
+        </div>
+        
+    {% endif %}
+    
+    <div class="my-4">
+        
+        <h3>Laissez un commentaire :</h3>
+        
+        {% if app.user %}
+            <div>
+                {{ form(form) }}
+            </div>
+        {% else %}
+            
+            <div>
+
+                <p>Vous devez être connecté pour pouvoir laisser un commentaire !</p><br>
+                
+                <div class="d-flex my-2">
+                    <a class="btn btn-secondary mb-2 mr-2" href="{{ path("app_login") }}">Connexion</a><br>
+                    <a class="btn btn-secondary mb-2 mr-2" href="{{ path("app_register") }}">Créer un compte</a>
+                </div>
+
+            </div>
+        
+        {% endif %}
+
+    </div>
+
+</div>

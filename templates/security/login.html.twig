@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion - Le Collectif Taliesin{% endblock %}
+
+    {% block body %}
+
+        <div class="login container-fluid">
+
+            <div class="row">
+
+                <div class="col-12 mt-5">
+
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+
+                        {% if app.user %}
+                            <div class="message mb-3">
+                            Vous êtes connecté en tant que {{ app.user.username }}, <a class="text-warning" href="{{ path('app_logout') }}">Déconnexion</a>
+                            </div>
+                        {% endif %}
+
+                        <br>
+                            
+                        <div id="box">
+                        
+                            <div class="icone">
+                                <i class="far fa-user"></i>
+                            </div>
+                            
+                            <h1>Connexion :</h1>
+                        
+                            <form method="post">
+                                
+                                <label for="inputEmail">Adresse électronique :</label>
+                                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Entrez votre Adresse électronique" required>
+                        
+                                <label for="inputPassword">Mot de passe :</label>
+                                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Entrez votre Mot de passe" required>
+
+                                <input type="hidden" name="_csrf_token"
+                                value="{{ csrf_token('authenticate') }}">
+                            
+
+                                {#
+                                    Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                                    See https://symfony.com/doc/current/security/remember_me.html
+
+                                    <div class="checkbox mb-3">
+                                        <label>
+                                            <input type="checkbox" name="_remember_me"> Remember me
+                                        </label>
+                                    </div>
+                                #}
+
+                                <button type="submit">
+                                    Se connecter
+                                </button>
+
+                                <p><a href='{{ path('app_forgot_password_request') }}'>Mot de passe oublié ?</a></p>
+                                <p><a href='{{ path('app_register') }}'>Créez votre compte</a></p>
+                        
+                            </form>
+
+                        </div>
+            
+                </div>
+        
+            </div>
+            
+        </div>
+
+    {% endblock %}

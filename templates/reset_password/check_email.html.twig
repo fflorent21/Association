@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reinitialiser votre mot de passe - Le Collectif Taliesin{% endblock %}
+
+    {% block body %}
+
+    <div class="container my-5">
+        
+        <div class="row">
+
+            <div class="col-12 my-5">
+
+                <p>
+                    Un email contenant un lien pour réinitialiser votre mot de passe, vous à été envoyé. Ce lien expirera dans 
+                    {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+                </p>
+                
+                <p>Si vous ne recevez pas d'e-mail, veuillez vérifier votre dossier spam ou <a href="{{ path('app_forgot_password_request') }}">réessayer</a>.</p>
+        
+            </div>
+        
+        </div>
+
+    </div>
+        
+    {% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription - Le Collectif Taliesin{% endblock %}
+
+    {% block body %}
+
+        <div class="inscription container">
+
+            <br>
+            
+            <h1 class="title p-1 text-center my-5">Formulaire d'inscription :</h1>
+
+            {{ form_start(registrationForm) }}
+
+                <div class="row">
+                    
+                    <div class="col-md-4">
+                        {{ form_row(registrationForm.author) }}
+                    </div>
+                    
+                    <div class="col-md-4">
+                        {{ form_row(registrationForm.first_name) }}
+                    </div>
+                    
+                    <div class="col-md-4">
+                        {{ form_row(registrationForm.last_name) }}
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    
+                    <div class="col-6">
+                        {{ form_row(registrationForm.phone) }}
+                    </div>
+
+                    <div class="col-6">
+                        {{ form_row(registrationForm.email) }}
+                    </div>
+
+                </div>
+                    
+                <div class="row">
+
+                    <div class="col-12">
+                        {{ form_row(registrationForm.password) }}
+                    </div>
+
+                    <div class="col-12">
+                        {{ form_row(registrationForm.rgpd) }}
+                    </div>
+                    
+                </div>
+
+                <div class="col-12 text-right my-5">
+
+                    <button type="submit" class="btn btn-success">S'inscrire</button>
+
+                </div>
+
+            {{ form_end(registrationForm) }}
+
+        </div>
+        
+    {% endblock body %}

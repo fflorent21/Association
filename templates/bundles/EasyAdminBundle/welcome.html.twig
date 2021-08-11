@@ -1,0 +1,19 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+
+{% extends '@!EasyAdmin/page/content.html.twig' %}
+
+{% block page_content %}
+
+	<section class="row mt-5">
+		<div class="font-weight-bold mx-auto" >
+			<h2>Bonjour</h2>
+		</div>
+		<diV>
+		<img class="w-100" src="{{ asset('media/images/logo.png') }}" alt="Logo du Collectif Taliesin">
+		</div>
+		<div class="font-weight-bold mx-auto">
+			<h2>{{ "now"|date("d M. Y") }}</h2>
+		</div>
+	</section>
+
+{% endblock %}

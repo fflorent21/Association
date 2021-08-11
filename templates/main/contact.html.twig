@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact - Le Collectif Taliesin{% endblock %}
+
+    {% block body %}
+        
+        <div class="Contact container mb-4">
+
+            <br>
+
+            <a href="{{ path('app_home') }}" class="go-home"><h3 class="my-5">🏠</h3></a>
+
+            {% for messages in app.flashes('success') %}
+                <div class="alert alert-dismissible alert-success">
+                    <button type="button" class="close" data-dismiss="alert" tabindex="0">&times;</button>
+                    {{ messages }}
+                </div>
+            {% endfor %}
+            
+            <h1 class="text-cente">Contact :</h1>
+
+            {{ form_start(contactForm) }}
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                    
+                        {{ form_row(contactForm.first_name) }}
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        {{ form_row(contactForm.last_name) }}
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                
+                        {{ form_row(contactForm.email) }}
+
+                    </div>
+
+                    <div class="col-md-12">
+                
+                        {{ form_row(contactForm.message) }}
+
+                    </div>
+                
+                
+                    <div class="col-12 text-right my-5">
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </div>
+
+                </div>
+
+            {{ form_end(contactForm) }}
+        
+        </div>
+
+        
+    {% endblock %}

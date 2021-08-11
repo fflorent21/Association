@@ -1,0 +1,28 @@
+<section class="my-4">
+    <div class="my-3">
+        <h2>Vos 5 derniers articles aimés :</h2>
+    </div>
+    <div class="d-flex flex-column flex-lg-row"> 
+        {% for like in fifth_article_like %}
+            <a href="{{ path('article_show', {'id': like.article.id}) }}" class="text-decoration-none text-reset">
+                <div class="flex-grow-1 card border-secondary mb-2 mr-2">
+                    <div class="card-header">{{ like.article.title }}</div>
+                    <div class="card-body">
+                        <div>
+                            <img class="img-fluid rounded" src="{{ asset('uploads/images/' ~ like.article.image) }}">
+                        </div>
+                        <h6 class="mt-1">
+                            Catégorie : 
+                            <span class="mb-1 text-secondary">{{ like.article.category.name}}</span>
+                        </h6>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+    {% if not fifth_article_like %}
+        <div class="text-center my-4 border p-4 text-muted">
+            Vous semblez ne pas avoir d'article aimé
+        </div>
+    {% endif %}
+</section>

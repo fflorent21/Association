@@ -1,0 +1,28 @@
+<section class="my-4">
+    <div class="my-3">
+        <h2>Vos 5 derniers articles commentés :</h2>
+    </div>
+    <div class="d-flex flex-column flex-lg-row">
+    {% for comment in fifth_article_comment %}
+        <a href="{{ path('article_show', {'id': comment.article.id}) }}" class="text-decoration-none text-reset">
+            <div class="flex-grow-1 card border-secondary mb-2 mr-2">
+                <div class="card-header">{{ comment.article.title }}</div>
+                <div class="card-body">
+                    <div>
+                        <img class="img-fluid rounded" src="{{ asset('uploads/images/' ~ comment.article.image) }}">
+                    </div>
+                    <h6 class="mt-1">
+                        Catégorie : 
+                        <span class="mb-1 text-secondary">{{ comment.article.category.name}}</span>
+                    </h6>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+    </div>
+    {% if not fifth_article_comment %}
+        <div class="text-center my-4 border p-4 text-muted">
+            Vous semblez ne pas avoir commenté d'article
+        </div>
+    {% endif %}
+</section>
